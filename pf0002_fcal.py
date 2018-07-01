@@ -14,22 +14,19 @@ def save2f ( f, contents ):
     fout.write(contents)
 
 os.system('clear')
-iyr=2019
-iendyr=iyr+1
 
-enddate=date(iendyr,11,30)
-ldate=date(iendyr,3,1)
+fyr=int(sys.argv[0])
+iyr=fyr + 1
+print fyr+1
+print iyr
+os.sys.exit()
+
+
+enddate=date(fyr,11,30)
+ldate=date(fyr,3,1)
 lpdone=0
 
-dicdate=dict()
-arr_key=[]
-arr_val=[]
-
-for i in range(1,13):
-    x=date(iyr,i,1)
-    mon=x.strftime("%b")
-    arr_key.append(mon)
-    
+dict_date=dict()
 
 ii=date(iyr,11,2)
 fMmm=ii+relativedelta(months=1)
@@ -42,19 +39,20 @@ while i < enddate:
 
     #***work on this part trying to make dictionary.
     if fmonth != bfmonth:
+        #todo: print forecasting month.
         print(fmonth)
-        dicdate[fmonth]=
-
-        arr_val.append(i)
-    else:
-        arr_val.append(i)
-        
 
     #todo: save the current fmonth as bfmonth.
     bfmonth=fmonth
 
     strout=i.strftime("%b").lower()+i.strftime('%d')+i.strftime('%Y')
     print("     " + strout)
+
+    #todo: add dates to dictionary.
+    if dict_date.has_key(fmonth):
+        dict_date[fmonth].append(strout)
+    else:
+        dict_date[fmonth]=[strout]
 
     #todo: add 5 days. 
     i=i+timedelta(days=5)
@@ -65,11 +63,19 @@ while i < enddate:
             i=i+timedelta(days=1)
             lpdone=1
 
-
-
+for x in dict_date.keys():
+    print x
+    print dict_date[x]
 
 
 os.sys.exit()
+
+
+
+
+
+
+
 
 
 for name in calendar.month_abbr:
@@ -97,7 +103,6 @@ for month in range (1,13):
 
     print ("%10s %2d" % (calendar.month_name[month],auditday))
 
-exit()
 
 c=calendar.TextCalendar(calendar.SUNDAY)
 #c=calendar.HTMLCalendar(calendar.SUNDAY)
@@ -109,7 +114,6 @@ c=calendar.TextCalendar(calendar.SUNDAY)
 for name in calendar.month_name:
     print(name)
 
-exit()
 
 for i in c.itermonthdays(2025,4):
     print(i)
