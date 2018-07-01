@@ -8,6 +8,7 @@ from dateutil.relativedelta import relativedelta
 import calendar
 import sys
 import os
+from collections import OrderedDict
 
 def save2f ( f, contents ):
     fout=open(f, 'w')
@@ -15,18 +16,15 @@ def save2f ( f, contents ):
 
 os.system('clear')
 
-fyr=int(sys.argv[0])
-iyr=fyr + 1
-print fyr+1
-print iyr
-os.sys.exit()
-
+#fyr=int(sys.argv[0])
+fyr=2019
+iyr=fyr - 1
 
 enddate=date(fyr,11,30)
 ldate=date(fyr,3,1)
 lpdone=0
 
-dict_date=dict()
+dict_date=OrderedDict()
 
 ii=date(iyr,11,2)
 fMmm=ii+relativedelta(months=1)
@@ -63,9 +61,14 @@ while i < enddate:
             i=i+timedelta(days=1)
             lpdone=1
 
+print len(dict_date.keys())
 for x in dict_date.keys():
     print x
-    print dict_date[x]
+
+els=list(dict_date.items())
+print els[0]
+
+     
 
 
 os.sys.exit()
