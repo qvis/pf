@@ -2,7 +2,7 @@
 '''
 File Name       :   pf0001_fmfyr.py
 Created         :   May 24, 2018
-Description     :   Figure out next forecasting month and year based on the day 6th of the month.
+Description     :   Figure out next forecasting month and year based on the day 25th of the month.
 Latest Updates  :   x/x/xxxx
 Update Notes    :   x/x/xxxx
                 :   x/x/xxxx     blah blah blah blah...
@@ -56,7 +56,7 @@ def date_two():
         mm1=mm0+1
         yyyy1=yyyy0
 
-    ddate0=datetime.date(yyyy0,mm0,6)   #<= used 6th of the month
-    ddate1=datetime.date(yyyy1,mm1,6)
+    ddate0=datetime.date(yyyy0,mm0,25)   #<= used 25th of the month
+    ddate1=datetime.date(yyyy1,mm1,25)
     return ddate0, ddate1
 
